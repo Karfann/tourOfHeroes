@@ -11,6 +11,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 
 import { HeroService } from './heroes/hero.service';
+import { LoggerService } from "./logger.service";
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -37,7 +38,7 @@ import { HeroFormComponent } from './heroes/hero-form.component';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
-  providers: [HeroService, HeroSearchService],
+  providers: [HeroService, HeroSearchService, LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

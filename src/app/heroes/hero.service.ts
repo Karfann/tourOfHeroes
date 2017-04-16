@@ -4,6 +4,7 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Hero } from './hero';
+import { LoggerService } from "./../logger.service";
 
 
 @Injectable()
@@ -13,10 +14,12 @@ export class HeroService {
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(
-    private http: Http
+    private http: Http,
+    private logger: LoggerService
   ) { }
 
   getHeroes(): Promise<Hero[]> {
+    this.logger.log("Getting heroes ...");
     return this.http
       .get(this.heroesUrl)
       .toPromise()
